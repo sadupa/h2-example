@@ -25,10 +25,10 @@ public class ApiRequestController {
     @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public Map<String, String> getHome() {
         logger.info("Api request received");
-        ApiRequest apiRequest = new ApiRequest(new Date());
 
         Map<String, String> response = new HashMap<String, String>();
         try {
+            ApiRequest apiRequest = new ApiRequest(new Date());
             apiRequestService.create(apiRequest);
             response.put("status", "success");
         } catch (Exception e) {
